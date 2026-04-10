@@ -1,6 +1,7 @@
 import Header from "./Header"
 import About from "./About"
 import Scenes from "./Scenes"
+import AudioVisual from "./AudioVisual"
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
             <Header />
             <About />
             <Scenes />
+            <AudioVisual />
         </main>
     )
 }
