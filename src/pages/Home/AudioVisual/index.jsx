@@ -14,7 +14,7 @@ export default function AudioVisual() {
             <AuViComponent 
                 index="05" title="Cinema e Audiovisual"
                 time1="15:30" img1={roubo} title1="O Roubo da Imagem (2024)" type1= "Documentário - Longa Metragem" desc1="Direção, roteiro, câmera, produção, som direto, pós produção, edição e identidade visual." loc1="FACOM/UFJF NOSSO MOÍNHO ESTÚDIO DE MEMÓRIAS JUIZ DE FORA"
-                time2="16:00"
+                time2="16:00" img2={querela}
             />
         </section>
     )
