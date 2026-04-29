@@ -2,6 +2,7 @@ import Header from "./Header"
 import About from "./About"
 import Scenes from "./Scenes"
 import AudioVisual from "./AudioVisual"
+import Footer from "./Footer"
 
 export default function Home() {
     return (
@@ -10,6 +11,7 @@ export default function Home() {
             <About />
             <Scenes />
             <AudioVisual />
+            <Footer />
         </main>
     )
 }
