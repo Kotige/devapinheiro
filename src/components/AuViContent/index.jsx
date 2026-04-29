@@ -3,11 +3,11 @@ export default function ({time, bool=true, title, type, date, img, link, descrip
         <div className={bool ? "border-b" : ""}>
             <div className="flex">
                 <div className="flex-1 border-e flex items-center justify-center">
-                    <p className="text-center font-extralight">{time}</p>
+                    <p className="text-center text-sm md:text-base px-1 md:px-0 font-extralight">{time}</p>
                 </div>
                 <div className="flex-8 border-e">
-                    <div className="flex py-4 px-4">
-                        <div className="pe-6 w-55 h-60 aspect-video">
+                    <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start py-4 px-4 text-center md:text-start">
+                        <div className="mb-4 md:mb-0 pe-6 w-55 h-60 aspect-video">
                             <a href={link}
                                 target="_blank"
                             >
