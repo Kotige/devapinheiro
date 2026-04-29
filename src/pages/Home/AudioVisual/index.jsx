@@ -1,6 +1,7 @@
 import AuViComponent from "@/components/AuViComponent";
 import AuViContent from "@/components/AuViContent";
 import Still from "@/components/Still";
+import Carousel from "@/components/Carousel";
 
 // Imagens
 import roubo from "@/assets/images/audiovisual/a3.png"
@@ -9,6 +10,10 @@ import arbitrio from "@/assets/images/audiovisual/a2.png"
 import hotel from "@/assets/images/audiovisual/a4.png"
 import pecado from "@/assets/images/audiovisual/a5.png"
 import luciano from "@/assets/images/audiovisual/a6.png"
+
+// Carousel
+import still1 from "../../../assets/images/banners/stil1.png"
+import still2 from "../../../assets/images/banners/still2.png"
 
 export default function AudioVisual() {
     return (
@@ -53,7 +58,11 @@ export default function AudioVisual() {
                 />
             </AuViComponent>
 
-            
+            <Carousel 
+                images={[still1, still2]}
+                interval={4000}
+                height="h-[500px]"
+            />
 
             {/* Podcasts */}
             <AuViComponent index="06" title="Produção de podcast">
