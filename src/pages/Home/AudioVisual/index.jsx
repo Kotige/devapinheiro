@@ -1,21 +1,95 @@
 import AuViComponent from "@/components/AuViComponent";
+import AuViContent from "@/components/AuViContent";
 import Still from "@/components/Still";
 
 // Imagens
-import arbitrio from "@/assets/images/audiovisual/arbitrio.png"
-import hotel from "@/assets/images/audiovisual/hotel.jpg"
-import pecado from "@/assets/images/audiovisual/pecado.jpg"
-import querela from "@/assets/images/audiovisual/querela.png"
-import roubo from "@/assets/images/audiovisual/roubo.jpg"
+import roubo from "@/assets/images/audiovisual/a3.png"
+import querela from "@/assets/images/audiovisual/a1.png"
+import arbitrio from "@/assets/images/audiovisual/a2.png"
+import hotel from "@/assets/images/audiovisual/a4.png"
+import pecado from "@/assets/images/audiovisual/a5.png"
+import luciano from "@/assets/images/audiovisual/a6.png"
 
 export default function AudioVisual() {
     return (
         <section id="audiovisual">
-            <AuViComponent 
-                index="05" title="Cinema e Audiovisual"
-                time1="15:30" img1={roubo} title1="O Roubo da Imagem (2024)" type1= "Documentário - Longa Metragem" desc1="Direção, roteiro, câmera, produção, som direto, pós produção, edição e identidade visual." loc1="FACOM/UFJF NOSSO MOÍNHO ESTÚDIO DE MEMÓRIAS JUIZ DE FORA"
-                time2="16:00" img2={querela}
-            />
+
+            {/* Cinema */}
+            <AuViComponent index="05" title="Cinema e Audiovisual" subtitle="- Produção universitária e independente">
+                <AuViContent 
+                    time="15:30"
+                    img={roubo}
+                    title="O Roubo da Imagem"
+                    date="2024"
+                    type="Documentário - Longa Metragem"
+                    description="Direção, roteiro, câmera, produção, som direto, pós produção, edição e identidade visual."
+                    loc1="Facom/ufjf"
+                    loc2="Nosso Moinho"
+                    loc3="Estúdio de Memórias Juiz de Fora"
+                    link="https://www.youtube.com/watch?v=DRHH2Zx0dkM"
+                />
+                <AuViContent 
+                    time="16:00"
+                    img={querela}
+                    title="A querela"
+                    date="2023"
+                    type="Documentário - Curta Metragem"
+                    description="Direção, roteiro, produção, pós produção, edição e identidade visual."
+                    loc1="ufjf"
+                    loc2="Museu de Artes Murilo Mendes"
+                    loc3="Penido"
+                    link="https://www.youtube.com/watch?v=GoqhKZw6Z9I"
+                />
+                <AuViContent 
+                    time="16:30"
+                    img={arbitrio}
+                    title="Arbítrio"
+                    date="2022"
+                    type="Ficção, suspense - Curta Metragem"
+                    description="Assistência de direção e produção."
+                    loc1="Juiz de Fora"
+                    link="https://www.youtube.com/watch?v=bc1vq4Enkbc"
+                    bool={false}
+                />
+            </AuViComponent>
+
+            
+
+            {/* Podcasts */}
+            <AuViComponent index="06" title="Produção de podcast">
+                <AuViContent
+                    time="17:00"
+                    img={hotel}
+                    title="Hotel Real"
+                    date="2022"
+                    type="Podcast narrativo expandido"
+                    description="Roteirização, produção, locução e montagem"
+                    loc1="Juiz de Fora"
+                    link="https://open.spotify.com/show/69WOJYOhcGPN9NRmONbEEF"
+                />
+                <AuViContent
+                    time="17:30"
+                    img={pecado}
+                    title="Pecado Original"
+                    date="2022"
+                    type="Podcast narrativo expandido"
+                    description="Direção, roteirização, produção e identidade visual"
+                    loc1="Juiz de Fora"
+                    link="https://open.spotify.com/show/1vtoOrYJ4W9Zl4NE7inOyF"
+                />
+                <AuViContent
+                    time="18:00"
+                    img={luciano}
+                    title="Luciano Cruz convida"
+                    date="2026"
+                    type="Videocast/ Bate papo"
+                    description="Direção, roteirização, produção, pós produção, edição e identidade visual"
+                    loc1="Grupo Libertempo"
+                    loc2="Gaffe Studio"
+                    link="https://www.youtube.com/watch?si=29twQC1TZ6_AHKQ4&v=4yidKm8IKNc&feature=youtu.be"
+                    bool={false}
+                />
+            </AuViComponent>
         </section>
     )
 }
