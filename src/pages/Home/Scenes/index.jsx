@@ -2,10 +2,10 @@ import Scene from "@/components/Scene"
 import Still from "@/components/Still"
 
 // Banners
-import muscle from "@/assets/images/banners/MUSCLE.png"
-import rainbow from "@/assets/images/banners/RAINBOW.png"
-import ampar from "@/assets/images/banners/AMPAR.png"
-import havan from "@/assets/images/banners/HAVAN.png"
+import muscle from "@/assets/images/banners/muscle.png"
+import rainbow from "@/assets/images/banners/rainbow.png"
+import ampar from "@/assets/images/banners/ampar.png"
+import havan from "@/assets/images/banners/havan.png"
 
 
 export default function Scenes() {
