@@ -12,8 +12,8 @@ import pecado from "@/assets/images/audiovisual/a5.png"
 import luciano from "@/assets/images/audiovisual/a6.png"
 
 // Carousel
-import still1 from "@/assets/images/banners/still1.png"
-import still2 from "@/assets/images/banners/still2.png"
+import img1 from "@/assets/images/banners/still1.png"
+import img2 from "@/assets/images/banners/still2.png"
 
 export default function AudioVisual() {
     return (
@@ -60,8 +60,8 @@ export default function AudioVisual() {
 
             <div className="mt-22">
                 <Carousel 
-                    src1={still1}
-                    src2={still2}
+                    src1={img1}
+                    src2={img2}
                     repeat={12}
                 />
             </div>
