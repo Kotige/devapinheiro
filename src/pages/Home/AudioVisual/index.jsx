@@ -12,8 +12,8 @@ import pecado from "@/assets/images/audiovisual/a5.png"
 import luciano from "@/assets/images/audiovisual/a6.png"
 
 // Carousel
-import still1 from "../../../assets/images/banners/stil1.png"
-import still2 from "../../../assets/images/banners/still2.png"
+import still1 from "@/assets/images/banners/stil1.png"
+import still2 from "@/assets/images/banners/still2.png"
 
 export default function AudioVisual() {
     return (
