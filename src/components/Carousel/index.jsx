@@ -1,43 +1,128 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Carousel({
-    images = [],
-    interval = 3000,
-    height = "h-[400px]",
+    src1,
+    src2,
+    alt1 = "",
+    alt2 = "",
+    className = "",
+    repeat = 12,
+    speed = 0.5,
 }) {
-    const [current, setCurrent] = useState(0);
+
+    const ref = useRef(null);
+    const animationRef = useRef(null);
+
+    const [isPaused, setIsPaused] = useState(false);
+
+    // Sequência 121212...
+    const images = Array.from({ length: repeat }, (_, i) => ({
+        src: i % 2 === 0 ? src1 : src2,
+        alt: i % 2 === 0 ? alt1 : alt2,
+    }));
+
+    // Duplica para criar loop infinito
+    const loopImages = [...images, ...images];
 
     useEffect(() => {
-        if (images.length <= 1) return;
+        const el = ref.current;
 
-        const timer = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % images.length);
-        }, interval);
+        if (!el) return;
 
-        return () => clearInterval(timer);
-    },[images.length, interval]);
+        requestAnimationFrame(() => {
+            el.scrollLeft = el.scrollWidth / 2;
+        });
+    }, []);
+
+    const handleScroll = () => {
+        const el = ref.current;
+
+        if (!el) return;
+
+        const max = el.scrollWidth - el.clientWidth;
+        const middle = max / 2;
+        const threshold = 100;
+
+        if (
+            el.scrollLeft <= threshold ||
+            el.scrollLeft >= max - threshold
+        ) {
+            el.scrollLeft = middle;
+        }
+    };
+
+    useEffect(() => {
+        const el = ref.current;
+
+        if (!el) return;
+
+        const animate = () => {
+            if (!isPaused) {
+                el.scrollLeft += speed;
+            }
+
+            animationRef.current = requestAnimationFrame(animate);
+        };
+
+        animationRef.current = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
+    }, [isPaused, speed]);
 
     return (
-        <div className={`w-full  ${height}`}>
-            <div
-                className="flex transition-transform duration-700 ease-in-out h-full"
-                style={{
-                    transform: `translateX(-${current * 100}%)`,
-                }}
-            >
-                {images.map((img, index) =>(
+        <div
+            ref={ref}
+            onScroll={handleScroll}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+            className="
+                relative
+                left-1/2
+                right-1/2
+                w-screen
+                -translate-x-1/2
+                overflow-x-auto
+                no-scrollbar
+                touch-pan-x
+                whitespace-nowrap
+            "
+        >
+            <div className="flex">
+                {loopImages.map((image, i) => (
                     <div
-                        key={index}
-                        className="w-full flex-shrink-0 flex items-center justify-center bg-black"
+                        key={`${image.src}-${i}`}
+                        className="
+                            shrink-0
+                            min-w-[85vw]
+                            md:min-w-[45vw]
+                        "
                     >
-                        <img 
-                            src={img} 
-                            alt={`slide-${index}`} 
-                            className="w-full h-full object-contain"
+                        <img
+                            src={image.src}
+                            alt={image.alt}
+                            draggable={false}
+                            loading="lazy"
+                            decoding="async"
+                            className={`
+                                block
+                                w-full
+                                h-[50vh]
+                                md:h-75
+                                object-cover
+                                select-none
+                                will-change-transform
+                                ${className}
+                            `}
                         />
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }

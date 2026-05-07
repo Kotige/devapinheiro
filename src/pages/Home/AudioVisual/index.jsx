@@ -58,11 +58,13 @@ export default function AudioVisual() {
                 />
             </AuViComponent>
 
-            <Carousel 
-                images={[still1, still2]}
-                interval={4000}
-                height="h-[500px]"
-            />
+            <div className="mt-22">
+                <Carousel 
+                    src1={still1}
+                    src2={still2}
+                    repeat={12}
+                />
+            </div>
 
             {/* Podcasts */}
             <AuViComponent index="06" title="Produção de podcast">
